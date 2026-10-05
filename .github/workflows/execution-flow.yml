@@ -77,7 +77,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
-    if: failure()
+    if: cancelled()
     needs:
       - lint
       - deploy

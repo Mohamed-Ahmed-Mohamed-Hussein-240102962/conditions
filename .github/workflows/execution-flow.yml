@@ -74,6 +74,9 @@ jobs:
     with:
       artifact: dist-files
       path: ./dist
+      envs: ${{vars.X}}
+    secrets: 
+      sec: ${{secrets.XTIP}}
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

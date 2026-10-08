@@ -1,0 +1,9 @@
+name: the reusable workflow
+on: workflow_call
+jobs:
+  first:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: test
+        run: echo "Hi evey one this is the deployment demo"
+        

@@ -10,7 +10,7 @@ on:
         required: true
       envs:
         type: string
-        required: true
+        required: false
       environment:
         type: string
         required: false
@@ -44,5 +44,5 @@ jobs:
         run: |
           echo "Deploying..."
           echo "${{secrets.sec}}"
-          echo "${{inputs.envs}}"
+          echo "${{vars.X}}"
         

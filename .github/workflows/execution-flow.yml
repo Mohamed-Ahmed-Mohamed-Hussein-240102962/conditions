@@ -73,6 +73,7 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       artifact: dist-files
+      path: ./dist
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

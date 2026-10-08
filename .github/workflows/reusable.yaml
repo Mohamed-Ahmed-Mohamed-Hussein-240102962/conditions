@@ -11,9 +11,13 @@ on:
       envs:
         type: string
         required: true
+      environment:
+        type: string
+        required: false
     secrets:
       sec:
         required: true
+    
         
 jobs:
   first:

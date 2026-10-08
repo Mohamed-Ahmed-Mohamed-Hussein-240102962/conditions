@@ -85,7 +85,7 @@ jobs:
     
     steps:
       - name: the result
-        run: ehco "${{needs.deploy.outputs.result}}"
+        run: echo "${{needs.deploy.outputs.result}}"
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

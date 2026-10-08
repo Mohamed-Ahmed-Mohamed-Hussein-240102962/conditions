@@ -1,5 +1,11 @@
 name: the reusable workflow
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      artifact:
+        type: string
+        description: its needed 
+        
 jobs:
   first:
     runs-on: ubuntu-22.04
@@ -11,12 +17,12 @@ jobs:
      steps:
       - name: Get build artifacts
         uses: actions/download-artifact@v6
-        with:
-          name: dist-files
-          path: ./dist
+        with: 
+          name: ${{inputs.artifact}}
+         
       - name: Output contents
         run: |
-          cd ./dist
+        
           ls
       - name: Deploy
         run: echo "Deploying..."

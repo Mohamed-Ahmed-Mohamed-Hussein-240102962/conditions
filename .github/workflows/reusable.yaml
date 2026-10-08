@@ -33,7 +33,7 @@ jobs:
         run: echo "Hi evey one this is the deployment demo"
       - name: this will produce output
         id: produce
-        run: ehco "WILIAM=DevOps" >> $GITHUB_OUTPUT
+        run: echo "WILIAM=DevOps" >> $GITHUB_OUTPUT
   sec:
      runs-on: ubuntu-latest
      environment: ${{inputs.environment}}

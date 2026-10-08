@@ -75,6 +75,7 @@ jobs:
       artifact: dist-files
       path: ./dist
       envs: ${{vars.X}}
+      environment: testing
     secrets: 
       sec: ${{secrets.XTIP}}
   report:

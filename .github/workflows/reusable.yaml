@@ -5,6 +5,9 @@ on:
       artifact:
         type: string
         description: its needed 
+      path:
+        type: string
+        required: true
         
 jobs:
   first:
@@ -19,9 +22,11 @@ jobs:
         uses: actions/download-artifact@v6
         with: 
           name: ${{inputs.artifact}}
+          path: ${{inputs.path}}
          
       - name: Output contents
         run: |
+          cd ./dist
         
           ls
       - name: Deploy

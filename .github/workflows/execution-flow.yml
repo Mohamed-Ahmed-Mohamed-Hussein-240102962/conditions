@@ -79,6 +79,13 @@ jobs:
       environment: testing
     secrets: 
       sec: ${{secrets.XTIP}}
+  output:
+    needs: deploy
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: the result
+        run: ehco "${{needs.deploy.outputs.result}}"
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

@@ -1,5 +1,6 @@
 name: the reusable workflow
 on: 
+
   workflow_call:
     inputs:
       artifact:
@@ -17,14 +18,22 @@ on:
     secrets:
       sec:
         required: true
+    outputs:
+      result:
+        value: ${{jobs.first.outputs.outcome}}
     
 
 jobs:
   first:
+    outputs:
+      outcome: ${{steps.produce.outputs.WILIAM}}
     runs-on: ubuntu-22.04
     steps:
       - name: test
         run: echo "Hi evey one this is the deployment demo"
+      - name: this will produce output
+        id: produce
+        run: ehco "WILIAM=DevOps" >> $GITHUB_OUTPUT
   sec:
      runs-on: ubuntu-latest
      environment: ${{inputs.environment}}

@@ -74,6 +74,7 @@ jobs:
     with:
       artifact: dist-files
       path: ./dist
+      envs: ${{vars.PORT}}
 
       environment: testing
     secrets: 

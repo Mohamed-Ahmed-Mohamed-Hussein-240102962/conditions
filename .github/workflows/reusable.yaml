@@ -1,1 +1,27 @@
-
+name: the_reusable
+on: 
+  workflow_call:
+    inputs:
+      downloadable:
+        required: true
+        type: string
+      path:
+        type: string
+        required: false
+        default: ./dist
+    secrets:
+      sec:
+        required: false
+jobs:
+  download:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: ${{inputs.downloadable}}
+          path: ${{inputs.path}}
+      -  run: |
+           cd ${{inputs.path}}
+           ls
+      -  run: echo "${{secrets.sec}}"

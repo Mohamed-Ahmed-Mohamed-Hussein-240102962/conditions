@@ -74,7 +74,7 @@ jobs:
       downloadable: dist-files
       path: ./dist
     secrets: 
-      sec: ${{secrets.X}}
+      sec: ${{secrets.XTIP}}
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

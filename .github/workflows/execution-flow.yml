@@ -68,24 +68,7 @@ jobs:
         with:
           name: dist-files
           path: dist
-  deploy:
-    needs: build
-    uses: ./.github/workflows/reusable.yaml
-    with:
-      artifact: dist-files
-      path: ./dist
-      envs: ${{vars.PORT}}
-
-      environment: testing
-    secrets: 
-      sec: ${{secrets.XTIP}}
-  output:
-    needs: deploy
-    runs-on: ubuntu-22.04
-    
-    steps:
-      - name: the result
-        run: echo "${{needs.deploy.outputs.result}}"
+  
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

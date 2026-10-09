@@ -68,7 +68,13 @@ jobs:
         with:
           name: dist-files
           path: dist
-  
+  deploy:
+    uses: '.github/workflows/reusable.yaml'
+    with:
+      downloadable: dist-files
+      path: ./dist
+    secrets: 
+      sec: ${{secrets.X}}
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:

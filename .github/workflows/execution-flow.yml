@@ -76,6 +76,12 @@ jobs:
       path: ./dist
     secrets: 
       sec: ${{secrets.XTIP}}
+  x:
+    needs: deploy
+    runs-on: ubuntu-22.04
+    steps:
+      - name: output result
+        run: echo " ${{needs.deploy.outputs.result}} "
   report:
     if: failure() && needs.deploy.result == 'failure' 
     needs:
